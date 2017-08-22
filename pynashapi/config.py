@@ -12,6 +12,7 @@ class Config:
 
 
 class DevelopmentConfig(Config):
+    DEBUG = True
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(
         basedir, 'data-dev.sqlite')
 
@@ -20,4 +21,18 @@ class DevelopmentConfig(Config):
         app = Config.init_app(app)
 
 
-config = {'development': DevelopmentConfig, 'default': DevelopmentConfig}
+class TestingConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(
+        basedir, 'data-test.sqlite')
+
+    @classmethod
+    def init_app(cls, app):
+        app = Config.init_app(app)
+
+
+config = {
+    'development': DevelopmentConfig,
+    'testing': TestingConfig,
+    'default': DevelopmentConfig
+}
