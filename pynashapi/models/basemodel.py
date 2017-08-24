@@ -4,8 +4,7 @@ from pynashapi import DB
 
 
 class ModelBase:
-    id = DB.Column(
-        DB.BigInteger, DB.Sequence(__name__ + '_id_seq'), primary_key=True)
+    id = DB.Column(DB.BigInteger, primary_key=True)
     created_on = DB.Column(DB.DateTime, default=datetime.utcnow)
     updated_on = DB.Column(
         DB.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
