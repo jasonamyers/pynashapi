@@ -3,4 +3,5 @@ flask-restful
 flask-script
 flask-sqlalchemy
 marshmallow-jsonapi
+psycopg2
 uwsgi
