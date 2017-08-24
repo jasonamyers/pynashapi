@@ -17,4 +17,8 @@ def create_app(config_name):
     def health_check():
         return jsonify({'health': 'OK'})
 
+    from pynashapi.api import API  # noqa: F401
+    from pynashapi.api import API_BP
+    app.register_blueprint(API_BP, url_prefix='/api')
+
     return app
