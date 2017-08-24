@@ -31,8 +31,18 @@ class TestingConfig(Config):
         app = Config.init_app(app)
 
 
+class ProductionConfig(Config):
+    DEBUG = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+
+    @classmethod
+    def init_app(cls, app):
+        app = Config.init_app(app)
+
+
 config = {
     'development': DevelopmentConfig,
     'testing': TestingConfig,
+    'production': ProductionConfig,
     'default': DevelopmentConfig
 }
