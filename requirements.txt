@@ -16,6 +16,8 @@ itsdangerous==0.24        # via flask
 jinja2==2.9.6             # via flask
 mako==1.0.7               # via alembic
 markupsafe==1.0           # via jinja2, mako
+marshmallow-jsonapi==0.15.0
+marshmallow==2.13.6       # via marshmallow-jsonapi
 python-dateutil==2.6.1    # via alembic, aniso8601
 python-editor==1.0.3      # via alembic
 pytz==2017.2              # via flask-restful
